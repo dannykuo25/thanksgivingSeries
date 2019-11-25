@@ -1,3 +1,5 @@
+# Approach 1: Ordered dictionary
+# time: O(1), space: O(capacity)
 from collections import OrderedDict
 class LRUCache(OrderedDict):
     def __init__(self, capacity):
@@ -18,6 +20,10 @@ class LRUCache(OrderedDict):
         self[key] = value
         if len(self) > self.capacity:
             self.popitem(last = False)
+
+# Approach 2: Hashmap + DoubleLinkedList
+
+
 
 # Your LRUCache object will be instantiated and called as such:
 capacity = 2
