@@ -1,7 +1,7 @@
 # brute force 
 # time: O(n^2), space: O(1)
 class Solution:
-    def trap(self, height: List[int]) -> int:
+    def trap(self, height) -> int:
         ret = 0
         for i in range(len(height)):
             maxL, maxR = 0, 0
