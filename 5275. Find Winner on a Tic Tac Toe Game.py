@@ -1,5 +1,5 @@
 class Solution:
-    def tictactoe(self, moves: List[List[int]]) -> str:
+    def tictactoe(self, moves):
         grid = [[' ' for _ in range(3)] for _ in range(3)]
         n = len(moves)
         for i in range(n):
