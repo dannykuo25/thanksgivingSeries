@@ -1,32 +1,28 @@
-# recursively
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
-
-class Solution:    
-#     # None  <-  1    <-    2    <- 3
-#     #                              prev     cur      tmpNext
+# recursively
+# time: O(n), space: O(n)
+class Solution:
     def reverseList(self, head):
-        if not head:
-            return
         prev = None
         cur = head
-        self.helper(cur, cur.next)
-        return head
+        return self.helper(prev, cur)
     
     def helper(self, prev, cur):
-        if not cur:
-            return
-        self.helper(cur, cur.next)
+        if cur == None:
+            return prev
+        end = self.helper(cur, cur.next)
         cur.next = prev
+        return end
         
-
-
+        
 # iteratively
-class Solution():
-    def reverseList(self, head: ListNode) -> ListNode:
+# time: O(n), space: O(1)
+class Solution2:
+    def reverseList(self, head):
         prev = None
         cur = head
         while cur != None:
