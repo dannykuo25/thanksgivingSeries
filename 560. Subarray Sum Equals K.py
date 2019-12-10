@@ -1,19 +1,18 @@
+# Input:nums = [1,1,1], k = 2
+# Output: 2
+
+# **Complexity Analysis**
+# Time complexity : O(n^2). We need to consider every subarray possible.
+# Space complexity : O(1). Constant space is used.
+# result: TLE
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
         cnt = 0
-        sum = 0
-        d = {}
-        d[0] = 1
-        for i in range(len(nums)):
-            sum += nums[i] # 20
-            if sum - k in d: # 13
-                cnt += d[sum - k]  
-            if sum in d:
-                d[sum] += 1
-            else:
-                d[sum] = 1 
+        for i in range(0, len(nums)):
+            sum = 0
+            for j in range(i, len(nums)):
+                sum += nums[j]
+                if sum == k:
+                    cnt += 1
         return cnt
-    # [3,4,7,2,-3,1,4,2]
-    #                 ^
-    # d = {0:1, 3:1, 7:1, 14:2, 16:1, 13:1, 18:1, 20:1}
-    # cnt = 4
+
